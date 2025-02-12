@@ -6,14 +6,11 @@ namespace SuperAdventure {
         private Monster _currentMonster;
         public SuperAdventure() {
             InitializeComponent();
-            _player = new Player(10, 10, 20, 0, 1);
+            _player = new Player(10, 10, 20, 0);
             MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
             _player.Inventory.Add(new InventoryItem(World.ItemByID(World.ITEM_ID_RUSTY_SWORD), 1));
 
-            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
-            lblGold.Text = _player.Gold.ToString();
-            lblExperience.Text = _player.ExperiencePoints.ToString();
-            lblLevel.Text = _player.Level.ToString();
+            UpdatePlayerStats();
         }
 
         private void btnNorth_Click(object sender, EventArgs e) {
@@ -55,8 +52,7 @@ namespace SuperAdventure {
             // Completely heal the player
             _player.CurrentHitPoints = _player.MaximumHitPoints;
 
-            // Update Hit Points in UI
-            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            UpdatePlayerStats();
 
             // Does the location have a quest?
             if (newLocation.QuestAvailableHere != null) {
@@ -88,6 +84,7 @@ namespace SuperAdventure {
                             rtbMessages.Text += Environment.NewLine;
 
                             _player.ExperiencePoints += newLocation.QuestAvailableHere.RewardExperiencePoints;
+                            UpdatePlayerStats();
                             _player.Gold += newLocation.QuestAvailableHere.RewardGold;
 
                             // Add the reward item to the player's inventory
@@ -152,6 +149,7 @@ namespace SuperAdventure {
             UpdateQuestListInUI();
             UpdateWeaponListInUI();
             UpdatePotionListInUI();
+            ScrollToBottomOfMessages();
         }
 
         private void UpdateInventoryListInUI() {
@@ -241,6 +239,7 @@ namespace SuperAdventure {
                 rtbMessages.Text += "You defeated the " + _currentMonster.Name + Environment.NewLine;
 
                 _player.ExperiencePoints += _currentMonster.RewardExperiencePoints;
+                UpdatePlayerStats();
                 rtbMessages.Text += "You receive " + _currentMonster.RewardExperiencePoints.ToString() + " experience points" + Environment.NewLine;
 
                 _player.Gold += _currentMonster.RewardGold;
@@ -272,11 +271,7 @@ namespace SuperAdventure {
                     }
                 });
 
-                lblHitPoints.Text = _player.CurrentHitPoints.ToString();
-                lblGold.Text = _player.Gold.ToString();
-                lblExperience.Text = _player.ExperiencePoints.ToString();
-                lblLevel.Text = _player.Level.ToString();
-
+                UpdatePlayerStats();
                 UpdateInventoryListInUI();
                 UpdateWeaponListInUI();
                 UpdatePotionListInUI();
@@ -289,7 +284,7 @@ namespace SuperAdventure {
                 int damageToPlayer = RandomNumberGenerator.NumberBetween(0, _currentMonster.MaximumDamage);
                 rtbMessages.Text += "The " + _currentMonster.Name + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
                 _player.CurrentHitPoints -= damageToPlayer;
-                lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+                UpdatePlayerStats();
 
                 if (_player.CurrentHitPoints <= 0) {
                     rtbMessages.Text += "The " + _currentMonster.Name + " killed you." + Environment.NewLine;
@@ -297,6 +292,7 @@ namespace SuperAdventure {
                     MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
                 }
             }
+            ScrollToBottomOfMessages();
         }
 
         private void btnUsePotion_Click(object sender, EventArgs e) {
@@ -326,9 +322,23 @@ namespace SuperAdventure {
                 MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
             }
 
-            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            UpdatePlayerStats();
             UpdateInventoryListInUI();
             UpdatePotionListInUI();
+            ScrollToBottomOfMessages();
+        }
+
+        private void UpdatePlayerStats() {
+            // Refresh player information and inventory controls
+            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            lblGold.Text = _player.Gold.ToString();
+            lblExperience.Text = _player.ExperiencePoints.ToString();
+            lblLevel.Text = _player.Level.ToString();
+        }
+
+        private void ScrollToBottomOfMessages() {
+            rtbMessages.SelectionStart = rtbMessages.Text.Length;
+            rtbMessages.ScrollToCaret();
         }
     }
 }
