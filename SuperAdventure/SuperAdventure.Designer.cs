@@ -26,8 +26,7 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -154,6 +153,7 @@
             btnUseWeapon.TabIndex = 11;
             btnUseWeapon.Text = "Use";
             btnUseWeapon.UseVisualStyleBackColor = true;
+            btnUseWeapon.Click += btnUseWeapon_Click;
             // 
             // btnUsePotion
             // 
@@ -163,6 +163,7 @@
             btnUsePotion.TabIndex = 12;
             btnUsePotion.Text = "Use";
             btnUsePotion.UseVisualStyleBackColor = true;
+            btnUsePotion.Click += btnUsePotion_Click;
             // 
             // btnNorth
             // 
@@ -172,6 +173,7 @@
             btnNorth.TabIndex = 13;
             btnNorth.Text = "North";
             btnNorth.UseVisualStyleBackColor = true;
+            btnNorth.Click += btnNorth_Click;
             // 
             // btnEast
             // 
@@ -181,6 +183,7 @@
             btnEast.TabIndex = 14;
             btnEast.Text = "East";
             btnEast.UseVisualStyleBackColor = true;
+            btnEast.Click += btnEast_Click;
             // 
             // btnSouth
             // 
@@ -190,6 +193,7 @@
             btnSouth.TabIndex = 15;
             btnSouth.Text = "South";
             btnSouth.UseVisualStyleBackColor = true;
+            btnSouth.Click += btnSouth_Click;
             // 
             // btnWest
             // 
@@ -199,6 +203,7 @@
             btnWest.TabIndex = 16;
             btnWest.Text = "West";
             btnWest.UseVisualStyleBackColor = true;
+            btnWest.Click += btnWest_Click;
             // 
             // rtbLocation
             // 
