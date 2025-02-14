@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Engine.Items
-{
-    public class HealingPotion : Item
-    {
+namespace Engine.Items {
+    public class HealingPotion : Item {
         public int AmountToHeal { get; set; }
 
-        public HealingPotion(int id, string name, string namePlural, int amountToHeal) : base(id, name, namePlural)
-        {
+        public HealingPotion(int id, string name, string namePlural, int amountToHeal) : base(id, name, namePlural) {
             AmountToHeal = amountToHeal;
         }
     }

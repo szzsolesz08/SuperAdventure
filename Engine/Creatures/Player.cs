@@ -8,8 +8,7 @@ using Engine.Items;
 using Engine.Quests;
 using Engine.World;
 
-namespace Engine.Creatures
-{
+namespace Engine.Creatures {
     public class Player : LivingCreature {
         public int Gold { get; set; }
         public int ExperiencePoints { get; set; }

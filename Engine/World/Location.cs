@@ -7,10 +7,8 @@ using Engine.Creatures;
 using Engine.Items;
 using Engine.Quests;
 
-namespace Engine.World
-{
-    public class Location
-    {
+namespace Engine.World {
+    public class Location {
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -24,8 +22,7 @@ namespace Engine.World
 
         public Location(int id, string name, string description, Item itemRequiredToEnter = null, Quest questAvailableHere = null,
             Monster monsterLivingHere = null, Location locationToNorth = null, Location locationToEast = null,
-            Location locationToSouth = null, Location locationToWest = null)
-        {
+            Location locationToSouth = null, Location locationToWest = null) {
             ID = id;
             Name = name;
             Description = description;

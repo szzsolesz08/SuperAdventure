@@ -5,8 +5,7 @@ using Engine.Misc;
 using Engine.Quests;
 using Engine.World;
 
-namespace SuperAdventure
-{
+namespace SuperAdventure {
     public partial class SuperAdventure : Form {
         private Player _player;
         private Monster _currentMonster;
@@ -366,7 +365,7 @@ namespace SuperAdventure
                 if (File.Exists(PLAYER_DATA_FILE_NAME)) {
                     File.Delete(PLAYER_DATA_FILE_NAME);
                     MessageBox.Show("Your saved game has been deleted.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                     _player = Player.CreateDefaultPlayer();
 
                     MoveTo(World.LocationByID(World.LOCATION_ID_HOME));

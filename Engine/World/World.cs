@@ -7,10 +7,8 @@ using Engine.Creatures;
 using Engine.Items;
 using Engine.Quests;
 
-namespace Engine.World
-{
-    public class World
-    {
+namespace Engine.World {
+    public class World {
         public static readonly List<Item> Items = new List<Item>();
         public static readonly List<Monster> Monsters = new List<Monster>();
         public static readonly List<Quest> Quests = new List<Quest>();
@@ -44,16 +42,14 @@ namespace Engine.World
         public const int LOCATION_ID_BRIDGE = 8;
         public const int LOCATION_ID_SPIDER_FIELD = 9;
 
-        static World()
-        {
+        static World() {
             PopulateItems();
             PopulateMonsters();
             PopulateQuests();
             PopulateLocations();
         }
 
-        private static void PopulateItems()
-        {
+        private static void PopulateItems() {
             Items.Add(new Weapon(ITEM_ID_RUSTY_SWORD, "Rusty sword", "Rusty swords", 0, 5));
             Items.Add(new Item(ITEM_ID_RAT_TAIL, "Rat tail", "Rat tails"));
             Items.Add(new Item(ITEM_ID_PIECE_OF_FUR, "Piece of fur", "Pieces of fur"));
@@ -66,8 +62,7 @@ namespace Engine.World
             Items.Add(new Item(ITEM_ID_ADVENTURER_PASS, "Adventurer pass", "Adventurer passes"));
         }
 
-        private static void PopulateMonsters()
-        {
+        private static void PopulateMonsters() {
             Monster rat = new Monster(MONSTER_ID_RAT, "Rat", 5, 3, 10, 3, 3);
             rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_RAT_TAIL), 75, false));
             rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_PIECE_OF_FUR), 75, true));
@@ -85,8 +80,7 @@ namespace Engine.World
             Monsters.Add(giantSpider);
         }
 
-        private static void PopulateQuests()
-        {
+        private static void PopulateQuests() {
             Quest clearAlchemistGarden =
                 new Quest(
                     QUEST_ID_CLEAR_ALCHEMIST_GARDEN,
@@ -111,8 +105,7 @@ namespace Engine.World
             Quests.Add(clearFarmersField);
         }
 
-        private static void PopulateLocations()
-        {
+        private static void PopulateLocations() {
             // Create each location
             Location home = new Location(LOCATION_ID_HOME, "Home", "Your house. You really need to clean up the place.");
 
@@ -175,12 +168,9 @@ namespace Engine.World
             Locations.Add(spiderField);
         }
 
-        public static Item ItemByID(int id)
-        {
-            foreach (Item item in Items)
-            {
-                if (item.ID == id)
-                {
+        public static Item ItemByID(int id) {
+            foreach (Item item in Items) {
+                if (item.ID == id) {
                     return item;
                 }
             }
@@ -188,12 +178,9 @@ namespace Engine.World
             return null;
         }
 
-        public static Monster MonsterByID(int id)
-        {
-            foreach (Monster monster in Monsters)
-            {
-                if (monster.ID == id)
-                {
+        public static Monster MonsterByID(int id) {
+            foreach (Monster monster in Monsters) {
+                if (monster.ID == id) {
                     return monster;
                 }
             }
@@ -201,12 +188,9 @@ namespace Engine.World
             return null;
         }
 
-        public static Quest QuestByID(int id)
-        {
-            foreach (Quest quest in Quests)
-            {
-                if (quest.ID == id)
-                {
+        public static Quest QuestByID(int id) {
+            foreach (Quest quest in Quests) {
+                if (quest.ID == id) {
                     return quest;
                 }
             }
@@ -214,12 +198,9 @@ namespace Engine.World
             return null;
         }
 
-        public static Location LocationByID(int id)
-        {
-            foreach (Location location in Locations)
-            {
-                if (location.ID == id)
-                {
+        public static Location LocationByID(int id) {
+            foreach (Location location in Locations) {
+                if (location.ID == id) {
                     return location;
                 }
             }

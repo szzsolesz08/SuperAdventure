@@ -5,10 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Engine.Items;
 
-namespace Engine.Creatures
-{
-    public class Monster : LivingCreature
-    {
+namespace Engine.Creatures {
+    public class Monster : LivingCreature {
         public int ID { get; set; }
         public string Name { get; set; }
         public int MaximumDamage { get; set; }
@@ -16,8 +14,7 @@ namespace Engine.Creatures
         public int RewardGold { get; set; }
         public List<LootItem> LootTable { get; set; }
 
-        public Monster(int id, string name, int maximumDamage, int rewardExperiencePoints, int rewardGold, int currentHitPoints, int maximumHitPoints) : base(currentHitPoints, maximumHitPoints)
-        {
+        public Monster(int id, string name, int maximumDamage, int rewardExperiencePoints, int rewardGold, int currentHitPoints, int maximumHitPoints) : base(currentHitPoints, maximumHitPoints) {
             ID = id;
             Name = name;
             MaximumDamage = maximumDamage;
