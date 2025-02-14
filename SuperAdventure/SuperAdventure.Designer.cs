@@ -48,14 +48,18 @@
             rtbMessages = new RichTextBox();
             dgvInventory = new DataGridView();
             dgvQuests = new DataGridView();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            newGameToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvInventory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvQuests).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(18, 20);
+            label1.Location = new Point(18, 40);
             label1.Name = "label1";
             label1.Size = new Size(62, 15);
             label1.TabIndex = 0;
@@ -64,7 +68,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(18, 46);
+            label2.Location = new Point(18, 66);
             label2.Name = "label2";
             label2.Size = new Size(35, 15);
             label2.TabIndex = 1;
@@ -73,7 +77,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(18, 74);
+            label3.Location = new Point(18, 94);
             label3.Name = "label3";
             label3.Size = new Size(67, 15);
             label3.TabIndex = 2;
@@ -82,7 +86,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(18, 100);
+            label4.Location = new Point(18, 120);
             label4.Name = "label4";
             label4.Size = new Size(37, 15);
             label4.TabIndex = 3;
@@ -123,7 +127,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(617, 531);
+            label5.Location = new Point(617, 551);
             label5.Name = "label5";
             label5.Size = new Size(74, 15);
             label5.TabIndex = 8;
@@ -132,7 +136,7 @@
             // cboWeapons
             // 
             cboWeapons.FormattingEnabled = true;
-            cboWeapons.Location = new Point(369, 559);
+            cboWeapons.Location = new Point(369, 579);
             cboWeapons.Name = "cboWeapons";
             cboWeapons.Size = new Size(121, 23);
             cboWeapons.TabIndex = 9;
@@ -140,14 +144,14 @@
             // cboPotions
             // 
             cboPotions.FormattingEnabled = true;
-            cboPotions.Location = new Point(369, 593);
+            cboPotions.Location = new Point(369, 613);
             cboPotions.Name = "cboPotions";
             cboPotions.Size = new Size(121, 23);
             cboPotions.TabIndex = 10;
             // 
             // btnUseWeapon
             // 
-            btnUseWeapon.Location = new Point(620, 559);
+            btnUseWeapon.Location = new Point(620, 579);
             btnUseWeapon.Name = "btnUseWeapon";
             btnUseWeapon.Size = new Size(75, 23);
             btnUseWeapon.TabIndex = 11;
@@ -157,7 +161,7 @@
             // 
             // btnUsePotion
             // 
-            btnUsePotion.Location = new Point(620, 593);
+            btnUsePotion.Location = new Point(620, 613);
             btnUsePotion.Name = "btnUsePotion";
             btnUsePotion.Size = new Size(75, 23);
             btnUsePotion.TabIndex = 12;
@@ -167,7 +171,7 @@
             // 
             // btnNorth
             // 
-            btnNorth.Location = new Point(493, 433);
+            btnNorth.Location = new Point(493, 453);
             btnNorth.Name = "btnNorth";
             btnNorth.Size = new Size(75, 23);
             btnNorth.TabIndex = 13;
@@ -177,7 +181,7 @@
             // 
             // btnEast
             // 
-            btnEast.Location = new Point(573, 457);
+            btnEast.Location = new Point(573, 477);
             btnEast.Name = "btnEast";
             btnEast.Size = new Size(75, 23);
             btnEast.TabIndex = 14;
@@ -187,7 +191,7 @@
             // 
             // btnSouth
             // 
-            btnSouth.Location = new Point(493, 487);
+            btnSouth.Location = new Point(493, 507);
             btnSouth.Name = "btnSouth";
             btnSouth.Size = new Size(75, 23);
             btnSouth.TabIndex = 15;
@@ -197,7 +201,7 @@
             // 
             // btnWest
             // 
-            btnWest.Location = new Point(412, 457);
+            btnWest.Location = new Point(412, 477);
             btnWest.Name = "btnWest";
             btnWest.Size = new Size(75, 23);
             btnWest.TabIndex = 16;
@@ -207,7 +211,7 @@
             // 
             // rtbLocation
             // 
-            rtbLocation.Location = new Point(347, 19);
+            rtbLocation.Location = new Point(347, 39);
             rtbLocation.Name = "rtbLocation";
             rtbLocation.ReadOnly = true;
             rtbLocation.Size = new Size(360, 105);
@@ -216,7 +220,7 @@
             // 
             // rtbMessages
             // 
-            rtbMessages.Location = new Point(347, 130);
+            rtbMessages.Location = new Point(347, 150);
             rtbMessages.Name = "rtbMessages";
             rtbMessages.ReadOnly = true;
             rtbMessages.Size = new Size(360, 286);
@@ -231,7 +235,7 @@
             dgvInventory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvInventory.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvInventory.Enabled = false;
-            dgvInventory.Location = new Point(16, 130);
+            dgvInventory.Location = new Point(16, 150);
             dgvInventory.MultiSelect = false;
             dgvInventory.Name = "dgvInventory";
             dgvInventory.ReadOnly = true;
@@ -247,7 +251,7 @@
             dgvQuests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQuests.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvQuests.Enabled = false;
-            dgvQuests.Location = new Point(16, 446);
+            dgvQuests.Location = new Point(16, 466);
             dgvQuests.MultiSelect = false;
             dgvQuests.Name = "dgvQuests";
             dgvQuests.ReadOnly = true;
@@ -255,11 +259,34 @@
             dgvQuests.Size = new Size(312, 189);
             dgvQuests.TabIndex = 20;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(719, 24);
+            menuStrip1.TabIndex = 21;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newGameToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // newGameToolStripMenuItem
+            // 
+            newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            newGameToolStripMenuItem.Size = new Size(180, 22);
+            newGameToolStripMenuItem.Text = "Start New Game";
+            newGameToolStripMenuItem.Click += newGameToolStripMenuItem_Click;
+            // 
             // SuperAdventure
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(719, 651);
+            ClientSize = new Size(719, 701);
             Controls.Add(dgvQuests);
             Controls.Add(dgvInventory);
             Controls.Add(rtbMessages);
@@ -281,10 +308,15 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "SuperAdventure";
             Text = "My Game";
+            FormClosing += SuperAdventure_FormClosing;
             ((System.ComponentModel.ISupportInitialize)dgvInventory).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvQuests).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -312,5 +344,8 @@
         private RichTextBox rtbMessages;
         private DataGridView dgvInventory;
         private DataGridView dgvQuests;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem newGameToolStripMenuItem;
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Engine {
+namespace Engine.Misc {
     public class RandomNumberGenerator {
         private static Random _generator = new Random();
 
