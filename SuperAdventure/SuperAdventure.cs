@@ -365,22 +365,22 @@ namespace SuperAdventure {
                 if (File.Exists(PLAYER_DATA_FILE_NAME)) {
                     File.Delete(PLAYER_DATA_FILE_NAME);
                     MessageBox.Show("Your saved game has been deleted.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    _player = Player.CreateDefaultPlayer();
-
-                    MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
-
-                    UpdatePlayerStats();
-                    UpdateInventoryListInUI();
-                    UpdateQuestListInUI();
-                    UpdateWeaponListInUI();
-                    UpdatePotionListInUI();
-
-                    rtbMessages.Text = "";
                 }
                 else {
                     MessageBox.Show("No saved game found to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                _player = Player.CreateDefaultPlayer();
+
+                MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
+
+                UpdatePlayerStats();
+                UpdateInventoryListInUI();
+                UpdateQuestListInUI();
+                UpdateWeaponListInUI();
+                UpdatePotionListInUI();
+
+                rtbMessages.Text = "";
             }
         }
     }
