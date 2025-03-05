@@ -96,7 +96,7 @@ namespace SuperAdventure {
                             rtbMessages.Text += newLocation.QuestAvailableHere.RewardItem.Name + Environment.NewLine;
                             rtbMessages.Text += Environment.NewLine;
 
-                            _player.ExperiencePoints += newLocation.QuestAvailableHere.RewardExperiencePoints;
+                            _player.AddExperiencePoints(newLocation.QuestAvailableHere.RewardExperiencePoints);
                             UpdatePlayerStats();
                             _player.Gold += newLocation.QuestAvailableHere.RewardGold;
 
@@ -209,10 +209,18 @@ namespace SuperAdventure {
                 btnUseWeapon.Visible = false;
             }
             else {
+                cboWeapons.SelectedIndexChanged -= cboWeapons_SelectedIndexChanged;
                 cboWeapons.DataSource = weapons;
+                cboWeapons.SelectedIndexChanged -= cboWeapons_SelectedIndexChanged;
                 cboWeapons.DisplayMember = "Name";
                 cboWeapons.ValueMember = "ID";
-                cboWeapons.SelectedIndex = 0;
+
+                if (_player.CurrentWeapon != null) {
+                    cboWeapons.SelectedItem = _player.CurrentWeapon;
+                }
+                else {
+                    cboWeapons.SelectedIndex = 0;
+                }
             }
         }
 
@@ -251,7 +259,7 @@ namespace SuperAdventure {
                 rtbMessages.Text += Environment.NewLine;
                 rtbMessages.Text += "You defeated the " + _currentMonster.Name + Environment.NewLine;
 
-                _player.ExperiencePoints += _currentMonster.RewardExperiencePoints;
+                _player.AddExperiencePoints(_currentMonster.RewardExperiencePoints);
                 UpdatePlayerStats();
                 rtbMessages.Text += "You receive " + _currentMonster.RewardExperiencePoints.ToString() + " experience points" + Environment.NewLine;
 
@@ -347,6 +355,10 @@ namespace SuperAdventure {
             lblGold.Text = _player.Gold.ToString();
             lblExperience.Text = _player.ExperiencePoints.ToString();
             lblLevel.Text = _player.Level.ToString();
+        }
+
+        private void cboWeapons_SelectedIndexChanged(object sender, EventArgs e) {
+            _player.CurrentWeapon = (Weapon)cboWeapons.SelectedItem;
         }
 
         private void ScrollToBottomOfMessages() {

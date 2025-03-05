@@ -11,9 +11,10 @@ using Engine.World;
 namespace Engine.Creatures {
     public class Player : LivingCreature {
         public int Gold { get; set; }
-        public int ExperiencePoints { get; set; }
+        public int ExperiencePoints { get; private set; }
         public int Level { get { return ((ExperiencePoints / 100) + 1); } }
         public Location CurrentLocation { get; set; }
+        public Weapon CurrentWeapon { get; set; }
         public List<InventoryItem> Inventory { get; set; }
         public List<PlayerQuest> Quests { get; set; }
 
@@ -45,6 +46,10 @@ namespace Engine.Creatures {
                 Player player = new Player(currentHitPoints, maximumHitPoints, gold, experiencePoints);
                 player.CurrentLocation = World.World.LocationByID(Convert.ToInt32(playerData.SelectSingleNode("/Player/Stats/CurrentLocation").InnerText));
 
+                if (playerData.SelectSingleNode("/Player/Stats/CurrentWeapon") != null) {
+                    player.CurrentWeapon = (Weapon)World.World.ItemByID(Convert.ToInt32(playerData.SelectSingleNode("/Player/Stats/CurrentWeapon").InnerText));
+                }
+
                 foreach (XmlNode node in playerData.SelectNodes("/Player/Inventory/InventoryItem")) {
                     int id = Convert.ToInt32(node.Attributes["ID"].Value);
                     int quantity = Convert.ToInt32(node.Attributes["Quantity"].Value);
@@ -66,6 +71,11 @@ namespace Engine.Creatures {
 
                 return Player.CreateDefaultPlayer();
             }
+        }
+
+        public void AddExperiencePoints(int experiencePointsToAdd) {
+            ExperiencePoints += experiencePointsToAdd;
+            MaximumHitPoints = Level * 10;
         }
 
         public bool HasRequiredItemToEnter(Location location) {
@@ -162,6 +172,12 @@ namespace Engine.Creatures {
             XmlNode currentLocation = playerData.CreateElement("CurrentLocation");
             currentLocation.AppendChild(playerData.CreateTextNode(CurrentLocation.ID.ToString()));
             stats.AppendChild(currentLocation);
+
+            if (CurrentWeapon != null) {
+                XmlNode currentWeapon = playerData.CreateElement("CurrentWeapon");
+                currentWeapon.AppendChild(playerData.CreateTextNode(CurrentWeapon.ID.ToString()));
+                stats.AppendChild(currentWeapon);
+            }
 
             XmlNode inventory = playerData.CreateElement("Inventory");
             player.AppendChild(inventory);

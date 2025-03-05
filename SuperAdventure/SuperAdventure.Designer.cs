@@ -95,7 +95,7 @@
             // lblHitPoints
             // 
             lblHitPoints.AutoSize = true;
-            lblHitPoints.Location = new Point(110, 19);
+            lblHitPoints.Location = new Point(110, 40);
             lblHitPoints.Name = "lblHitPoints";
             lblHitPoints.Size = new Size(0, 15);
             lblHitPoints.TabIndex = 4;
@@ -103,7 +103,7 @@
             // lblGold
             // 
             lblGold.AutoSize = true;
-            lblGold.Location = new Point(110, 45);
+            lblGold.Location = new Point(110, 66);
             lblGold.Name = "lblGold";
             lblGold.Size = new Size(0, 15);
             lblGold.TabIndex = 5;
@@ -111,7 +111,7 @@
             // lblExperience
             // 
             lblExperience.AutoSize = true;
-            lblExperience.Location = new Point(110, 73);
+            lblExperience.Location = new Point(110, 94);
             lblExperience.Name = "lblExperience";
             lblExperience.Size = new Size(0, 15);
             lblExperience.TabIndex = 6;
@@ -119,7 +119,7 @@
             // lblLevel
             // 
             lblLevel.AutoSize = true;
-            lblLevel.Location = new Point(110, 99);
+            lblLevel.Location = new Point(110, 120);
             lblLevel.Name = "lblLevel";
             lblLevel.Size = new Size(0, 15);
             lblLevel.TabIndex = 7;
@@ -278,7 +278,7 @@
             // newGameToolStripMenuItem
             // 
             newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            newGameToolStripMenuItem.Size = new Size(180, 22);
+            newGameToolStripMenuItem.Size = new Size(159, 22);
             newGameToolStripMenuItem.Text = "Start New Game";
             newGameToolStripMenuItem.Click += newGameToolStripMenuItem_Click;
             // 
